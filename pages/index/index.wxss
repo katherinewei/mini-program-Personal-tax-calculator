@@ -1,0 +1,148 @@
+.swiper-tab {
+  width: 100%;
+  border-bottom: 2rpx solid #ebebeb;
+  text-align: center;
+  line-height: 80rpx;
+  height: 88rpx;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.swiper-tab-list {
+  font-size: 32rpx;
+  display: inline-block;
+  width: 33.333%;
+  color: #777;
+}
+
+.swiper-tab-list.on {
+  position: relative;
+  text-decoration: none;
+  color: #64b357;
+}
+
+.swiper-tab-list:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: #64b357;
+  /* transform: translateX(-100%);
+            transition: all .3s;  */
+}
+
+.swiper-tab-list.on:before {
+  width: 100%;
+  transform: translateX(0);
+}
+
+.content{
+  padding-top: 100rpx;
+  font-size: 32rpx
+}
+
+.flex{
+  display: flex;
+  height:100rpx;
+  text-align: center;
+  align-items: center;
+  border-bottom: 1rpx solid #ebebeb
+}
+.flex .lable{
+  flex: 0.5
+}
+.flex .inputItem {
+  display: flex;
+  flex: 1.5
+}
+.flex .inputItem  .radioSpan{
+  margin: 0 20rpx 0 10rpx 
+}
+.flex .inputItem input{
+  flex: 1.5;
+  text-align: left
+}
+.flex .inputItem switch {
+  flex: 0.5;
+  width: 40rpx
+}
+.picker{
+  width: 100%;
+  text-align: left
+}
+
+.btn{
+  width: 90%;
+  margin: 50rpx auto
+}
+.btn button {
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 30rpx 0;
+  display: block
+}
+.swiper-box {
+  display: block;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.dialog{
+  background: rgba(0,0,0,.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2
+}
+.dialog-container{
+  width: 60%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #fff;
+  border-radius: 10rpx
+
+}
+.dialog-body{
+  padding: 20rpx;
+}
+.dialog-container text{
+  font-size: 28rpx;
+  display: block;
+  text-align: center;
+  line-height: 50rpx;
+  color: #666
+}
+.dialog-container .button{
+  background-color: transparent;
+  display: block;
+  text-align: center;
+  line-height: 70rpx;
+  font-size: 30rpx;
+  border-top: 1rpx solid  #ebebeb;
+  color: #64b357;
+}
+/* .wx-switch-input{
+  width:82rpx !important;
+  height:50rpx !important;
+} */
+/*白色样式（false的样式）*/
+/* .wx-switch-input::before{
+  width:80rpx !important;
+  height: 46rpx !important;
+} */
+/*绿色样式（true的样式）*/
+/* .wx-switch-input::after{
+  width: 46rpx !important;
+  height: 46rpx !important;
+} */

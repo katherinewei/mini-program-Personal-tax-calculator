@@ -1,0 +1,87 @@
+  <view class="swiper-tab">
+  <view wx:for="{{tabs}}" wx:for-item="tab" wx:for-index="n" wx:key="n" class="swiper-tab-list {{currentTab==n ? 'on' : ''}}" data-current="{{n}}" bindtap="swichNav">{{tab.title}}</view>
+
+</view>
+
+<view class="content">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view hidden="{{currentTab!=0}}">
+      <view class="flex">
+        <view class="flexItem lable">工资</view>
+        <view class="flexItem inputItem">
+          <input type="number" name="salary" placeholder='输入您的工资金额' />
+          <switch color="#64b357" name="state" bindchange="onChange" />
+        </view>
+      </view>
+      <view class="flex">
+        <view class="flexItem lable">社保</view>
+        <view class="flexItem inputItem">
+          <input  type="number" name="security" placeholder='输入您的工资金额' />
+
+        </view>
+      </view>
+      <view class="flex">
+        <view class="flexItem lable">个税起征点</view>
+        <view class="flexItem inputItem">
+          <radio-group class="radio-group" bindchange="radioChange" name="isDomestic">
+            <label class="radio" wx:for="{{radio_items}}">
+              <radio value="{{item.name}}" checked="{{item.checked}}" />
+              <span class="radioSpan">{{item.value}}</span>
+            </label>
+          </radio-group>
+
+        </view>
+      </view>
+
+    </view>
+    <view hidden="{{currentTab!=1}}">
+      <view class="flex">
+        <view class="flexItem lable">年终奖</view>
+        <view class="flexItem inputItem">
+          <input  type="number" name="yearEnd" placeholder='输入您的年终奖' />
+
+        </view>
+      </view>
+    </view>
+    <view hidden="{{currentTab!=2}}">
+      <view class="flex">
+        <view class="flexItem lable">收入类型</view>
+        <view class="flexItem inputItem">
+          <picker class="picker" bindchange="bindPickerChange" value="{{incomeTypeIndex}}" range="{{incomeType}}">
+            <view class="picker">
+              {{incomeType[incomeTypeIndex]}}
+            </view>
+          </picker>
+
+        </view>
+      </view>
+      <view class="flex">
+        <view class="flexItem lable">收入金额</view>
+        <view class="flexItem inputItem">
+          <input  type="number" name="income" placeholder='输入您的收入金额' />
+
+        </view>
+      </view>
+    </view>
+
+    <view class="btn">
+      <button type='primary' formType="submit">计算</button>
+      <button formType="reset">重置</button>
+    </view>
+  </form>
+</view> 
+
+<view class="dialog"  hidden="{{isHidden}}" >
+    <view class="dialog-container">
+      <view class="dialog-body">
+      <text>应纳税所得额：￥{{tax.price1}}</text>
+      <text>适用税率：{{tax.price2}}%</text>
+      <text>速算扣除数：￥{{tax.price3}}</text>
+      <text>应缴税款：￥{{tax.price4}}</text>
+      <text>税{{is_after ? '后' :'前'}}收入：￥{{tax.price5}}</text>
+    </view>
+    <view class='dialog-footer'>
+        <span bindtap="closeModal" class="button">确定</span>
+    </view>
+    </view>
+</view> 
